@@ -32,7 +32,7 @@ export function marcoLaboratorio(lab, { compacto = false } = {}) {
       recursos.push(e);
       return e;
     },
-    leer(...nodos) { lectura.replaceChildren(...nodos.flat()); },
+    leer(...nodos) { lectura.replaceChildren(...nodos.flat().filter((x) => x != null && x !== false)); },
     dato(etiqueta, valor) { return h('div', { class: 'dato' }, h('span', { class: 'dato__etiqueta' }, etiqueta), h('span', { class: 'dato__valor' }, valor)); },
   };
 
