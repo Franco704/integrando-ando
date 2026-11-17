@@ -210,6 +210,8 @@ export class Lienzo2D {
   }
 
   alPuntero(fn) {
+    this.canvas.style.touchAction = 'none'; // en el celular, arrastrar sobre el gráfico mueve el punto y no la página
+    this.canvas.style.cursor = 'crosshair';
     const manejar = (e) => {
       const r = this.canvas.getBoundingClientRect();
       fn(this.mundo(e.clientX - r.left, e.clientY - r.top), e);

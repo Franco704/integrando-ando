@@ -37,7 +37,7 @@
 .campo__entrada {
   min-height: 44px; padding: 0 var(--e-3); border-radius: var(--r-chico);
   border: 1.5px solid var(--linea); background: var(--superficie);
-  font-variant-numeric: tabular-nums; width: 100%;
+  width: 100%; font-size: 1.0625rem;
 }
 .campo__entrada:focus { border-color: var(--eje); outline: none; box-shadow: 0 0 0 3px var(--eje-tenue); }
 .campo__entrada[aria-invalid] { border-color: var(--error); }

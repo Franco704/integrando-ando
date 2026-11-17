@@ -6,7 +6,7 @@ import { paleta } from './colores.js';
 // prismas de Riemann) y nunca tocan Three directamente: si cambia el motor, cambia solo este archivo.
 // Convención del pizarrón: el eje z apunta hacia arriba.
 export class Escena3D {
-  constructor(contenedor, { rango = 3, camara = [1.6, -2.1, 1.4], etiqueta = 'Escena 3D interactiva', ejes = true, piso = true } = {}) {
+  constructor(contenedor, { rango = 3, camara = [1.8, -2.4, 1.6], etiqueta = 'Escena 3D interactiva', ejes = true, piso = true } = {}) {
     this.c = paleta();
     this.rango = rango;
     this.envoltura = document.createElement('div');
