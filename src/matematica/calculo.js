@@ -45,6 +45,26 @@ export function clasificarCritico(f, p) {
   return { fxx, fxy, fyy, D, tipo };
 }
 
+// Puntos críticos de f(x,y) en [a,b]×[c,d]: semillas en una grilla + Newton sobre ∇f = 0.
+export function puntosCriticos(f, { a = -3, b = 3, c = -3, d = 3 } = {}, semillas = 14) {
+  const hallados = [];
+  for (let i = 0; i <= semillas; i++)
+    for (let j = 0; j <= semillas; j++) {
+      let p = [a + ((b - a) * i) / semillas, c + ((d - c) * j) / semillas];
+      for (let k = 0; k < 40; k++) {
+        const g = gradiente(f, p), [[A, B], [, C]] = hessiano(f, p);
+        const det = A * C - B * B;
+        if (!Number.isFinite(det) || Math.abs(det) < 1e-12) break;
+        const paso = [(C * g[0] - B * g[1]) / det, (A * g[1] - B * g[0]) / det];
+        p = [p[0] - paso[0], p[1] - paso[1]];
+        if (Math.hypot(...paso) < 1e-10) break;
+      }
+      const dentro = p[0] >= a && p[0] <= b && p[1] >= c && p[1] <= d;
+      if (dentro && Math.hypot(...gradiente(f, p)) < 1e-5 && !hallados.some((q) => Math.hypot(q[0] - p[0], q[1] - p[1]) < 1e-3)) hallados.push(p);
+    }
+  return hallados.map((p) => ({ p, valor: f(...p), ...clasificarCritico(f, p) }));
+}
+
 // Simpson compuesto (n par).
 export function simpson(f, a, b, n = 200) {
   if (n % 2) n++;

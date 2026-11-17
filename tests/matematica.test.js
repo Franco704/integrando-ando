@@ -35,6 +35,16 @@ test('derivadas: gradiente, hessiano, direccional', () => {
   assert.equal(C.clasificarCritico((x, y) => 50 - x * x - y * y, [0, 0]).tipo, 'máximo relativo');
 });
 
+test('puntos críticos: TP 12 ej. 1 a (silla en (0,-1/2), mínimo en (4,-1/2))', () => {
+  const f = (x, y) => x ** 3 + y * y - 6 * x * x + y - 1;
+  const pc = C.puntosCriticos(f, { a: -2, b: 6, c: -3, d: 3 });
+  assert.equal(pc.length, 2);
+  const silla = pc.find((q) => Math.abs(q.p[0]) < 1e-4), min = pc.find((q) => Math.abs(q.p[0] - 4) < 1e-4);
+  assert.equal(silla.tipo, 'punto de silla');
+  assert.equal(min.tipo, 'mínimo relativo');
+  cerca(min.valor, -33.25, 1e-6);
+});
+
 test('integrales: simple, doble y triple', () => {
   cerca(C.simpson(Math.sin, 0, Math.PI), 2);
   // TP 13: ∫0^1∫x^2^x (x+y) dy dx = 3/20... verificado: ∫0^1 (x^2+x^2/2 - x^3 - x^4/2) dx = 1/3+1/6-1/4-1/10 = 3/20
