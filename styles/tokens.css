@@ -1,0 +1,104 @@
+/* Carta topográfica: papel frío, tinta azul noche. Cobalto = derivar (pendientes, 1er parcial).
+   Ciruela = integrar (acumular, 2do parcial). Ningún otro color decora. */
+:root {
+  --papel: #f1f4f8;
+  --papel-2: #e6ebf2;
+  --superficie: #ffffff;
+  --tinta: #14213d;
+  --tinta-suave: #52607a;
+  --cuadricula: #d3dae6;
+  --linea: #c3ccda;
+  --deriv: #2747c9;
+  --deriv-tenue: #e3e8fb;
+  --integ: #8e2a7f;
+  --integ-tenue: #f5e4f1;
+  --ok: #24734a;
+  --ok-tenue: #e1f1e7;
+  --error: #b42318;
+  --error-tenue: #fbe6e3;
+  --acento3: #b7791f;
+  --superficie-1: #2747c9;
+  --superficie-2: #8fd3c7;
+  --eje: var(--deriv);
+  --eje-tenue: var(--deriv-tenue);
+
+  --f-ui: 'Schibsted Grotesk', system-ui, sans-serif;
+  --f-texto: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+
+  /* Escala tipográfica modular 1.2 sobre 17px */
+  --t--1: 0.875rem;
+  --t-0: 1.0625rem;
+  --t-1: 1.275rem;
+  --t-2: 1.53rem;
+  --t-3: 1.836rem;
+  --t-4: 2.2rem;
+  --t-5: clamp(2.4rem, 7vw, 4.4rem);
+
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: 3rem;
+  --e-8: 4.5rem;
+
+  --r-chico: 6px;
+  --r-medio: 12px;
+  --medida: 68ch;
+  --gutter: 16px;
+  --barra: 56px;
+  --lateral: 300px;
+  color-scheme: light;
+}
+
+[data-parcial='2'], .eje-integ { --eje: var(--integ); --eje-tenue: var(--integ-tenue); }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --papel: #0c1220;
+    --papel-2: #121a2c;
+    --superficie: #161f33;
+    --tinta: #e4e9f2;
+    --tinta-suave: #9aa6bd;
+    --cuadricula: #1f2a40;
+    --linea: #2b3852;
+    --deriv: #8ba2ff;
+    --deriv-tenue: #1b2550;
+    --integ: #e58bd6;
+    --integ-tenue: #3a1836;
+    --ok: #6fcf97;
+    --ok-tenue: #163626;
+    --error: #ff8a7a;
+    --error-tenue: #3d1a17;
+    --acento3: #e9b45a;
+    --superficie-1: #3b5bdb;
+    --superficie-2: #9ff0de;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --papel: #0c1220;
+  --papel-2: #121a2c;
+  --superficie: #161f33;
+  --tinta: #e4e9f2;
+  --tinta-suave: #9aa6bd;
+  --cuadricula: #1f2a40;
+  --linea: #2b3852;
+  --deriv: #8ba2ff;
+  --deriv-tenue: #1b2550;
+  --integ: #e58bd6;
+  --integ-tenue: #3a1836;
+  --ok: #6fcf97;
+  --ok-tenue: #163626;
+  --error: #ff8a7a;
+  --error-tenue: #3d1a17;
+  --acento3: #e9b45a;
+  --superficie-1: #3b5bdb;
+  --superficie-2: #9ff0de;
+  color-scheme: dark;
+}
+
+@media (min-width: 768px) {
+  :root { --gutter: 32px; --t-0: 1.125rem; }
+}

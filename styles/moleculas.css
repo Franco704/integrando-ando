@@ -1,0 +1,71 @@
+/* Fila de módulo: el número de TP es la columna vertebral de la ruta */
+.fila-modulo {
+  display: grid; grid-template-columns: 2.6rem 1fr auto; gap: var(--e-3); align-items: start;
+  padding: var(--e-3) var(--e-2); text-decoration: none; border-radius: var(--r-chico);
+  position: relative;
+}
+.fila-modulo:hover { background: var(--eje-tenue); }
+.fila-modulo[aria-current='page'] { background: var(--eje-tenue); }
+.fila-modulo__tp {
+  font: 700 var(--t-1) / 1.1 var(--f-ui); color: var(--eje); font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.fila-modulo__cuerpo { display: grid; gap: 2px; min-width: 0; }
+.fila-modulo__titulo { font-weight: 600; line-height: 1.3; }
+.fila-modulo__resumen { color: var(--tinta-suave); font-size: var(--t--1); line-height: 1.4; }
+.fila-modulo__estado { color: var(--ok); padding-top: 4px; }
+.fila-modulo--leido .fila-modulo__tp { opacity: 0.65; }
+
+/* Pregunta de autoevaluación */
+.pregunta { display: grid; gap: var(--e-3); padding: var(--e-5) 0; border-top: 1px solid var(--linea); }
+.pregunta__enunciado { font-family: var(--f-texto); font-size: calc(var(--t-0) * 1.06); line-height: 1.6; }
+.pregunta__enunciado > * + * { margin-top: var(--e-2); }
+.pregunta__opciones { display: grid; gap: var(--e-2); }
+.pregunta__opcion {
+  display: grid; grid-template-columns: 1.8rem 1fr; gap: var(--e-2); align-items: baseline; text-align: left;
+  padding: var(--e-3); min-height: 48px; border: 1.5px solid var(--linea); border-radius: var(--r-chico);
+  background: var(--superficie); cursor: pointer; line-height: 1.45;
+}
+.pregunta__opcion:hover:not(:disabled) { border-color: var(--eje); }
+.pregunta__opcion:disabled { cursor: default; }
+.pregunta__letra { font-weight: 700; color: var(--tinta-suave); }
+.pregunta__opcion.es-correcta { border-color: var(--ok); background: var(--ok-tenue); }
+.pregunta__opcion.es-correcta .pregunta__letra { color: var(--ok); }
+.pregunta__opcion.es-incorrecta { border-color: var(--error); background: var(--error-tenue); }
+.pregunta__opcion.es-incorrecta .pregunta__letra { color: var(--error); }
+.pregunta__por { font-family: var(--f-texto); line-height: 1.6; padding: var(--e-3) var(--e-4); border-radius: var(--r-chico); background: var(--papel-2); }
+.pregunta__por > * + * { margin-top: var(--e-2); }
+.pregunta[data-resultado='bien'] .pregunta__por { background: var(--ok-tenue); }
+.pregunta__previa { font-size: var(--t--1); color: var(--tinta-suave); }
+
+/* Ejercicio resuelto paso a paso */
+.ejercicio { padding: var(--e-5) 0; border-top: 1px solid var(--linea); display: grid; gap: var(--e-3); }
+.ejercicio__cabecera { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-2) var(--e-3); }
+.ejercicio__numero { font-weight: 700; }
+.ejercicio__enunciado { font-family: var(--f-texto); font-size: calc(var(--t-0) * 1.06); line-height: 1.65; max-width: var(--medida); }
+.ejercicio__enunciado > * + * { margin-top: var(--e-3); }
+.ejercicio__pasos { margin: 0; padding: 0; list-style: none; counter-reset: paso; display: grid; gap: var(--e-3); max-width: var(--medida); }
+.ejercicio__paso {
+  counter-increment: paso; position: relative; padding: var(--e-1) 0 var(--e-1) 2.4rem;
+  font-family: var(--f-texto); line-height: 1.65;
+  animation: aparecer 0.25s ease-out;
+}
+.ejercicio__paso::before {
+  content: counter(paso); position: absolute; left: 0; top: 0.2rem;
+  width: 1.7rem; height: 1.7rem; border-radius: 50%; display: grid; place-items: center;
+  font: 700 0.8125rem / 1 var(--f-ui); background: var(--eje-tenue); color: var(--eje);
+}
+.ejercicio__paso > * + * { margin-top: var(--e-2); }
+.ejercicio__respuesta {
+  padding: var(--e-3) var(--e-4); border-left: 3px solid var(--ok); background: var(--ok-tenue);
+  border-radius: 0 var(--r-chico) var(--r-chico) 0; max-width: var(--medida); font-family: var(--f-texto);
+}
+.ejercicio__acciones { display: flex; flex-wrap: wrap; gap: var(--e-2); }
+.enlace-lab { display: inline-flex; align-items: center; gap: var(--e-2); color: var(--eje); font-weight: 600; font-size: var(--t--1); text-decoration: none; }
+.enlace-lab:hover { text-decoration: underline; }
+
+.teoria { padding: var(--e-5) 0; }
+.teoria + .teoria { border-top: 1px solid var(--linea); }
+.teoria__titulo { font-size: var(--t-2); margin-bottom: var(--e-4); }
+
+@keyframes aparecer { from { opacity: 0; transform: translateY(4px); } }
