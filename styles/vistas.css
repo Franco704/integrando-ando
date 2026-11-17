@@ -138,3 +138,13 @@ body.sin-scroll { overflow: hidden; }
 }
 .item-examen { grid-template-columns: minmax(0, 1fr); }
 .item-examen__practica { font-size: var(--t--1); color: var(--tinta-suave); }
+
+/* Otras guías */
+.otras-guias { margin-top: var(--e-8); padding-top: var(--e-5); border-top: 1px solid var(--linea); }
+.otras-guias__anio { font-size: var(--t--1); color: var(--tinta-suave); margin: var(--e-5) 0 var(--e-2); }
+.otras-guias__lista { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--e-2); grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.otras-guias__item { display: grid; border: 1px solid var(--linea); border-radius: var(--r-medio); background: var(--superficie); }
+.otras-guias__item:hover { border-color: var(--deriv); }
+.otras-guias__sitio { display: grid; gap: 2px; padding: var(--e-3) var(--e-4) var(--e-2); text-decoration: none; }
+.otras-guias__sitio span { color: var(--tinta-suave); font-size: var(--t--1); line-height: 1.4; }
+.otras-guias__repo { padding: 0 var(--e-4) var(--e-3); font-size: 0.8125rem; color: var(--deriv); }

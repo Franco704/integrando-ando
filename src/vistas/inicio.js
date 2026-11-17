@@ -4,6 +4,7 @@ import { portada } from '../ui/organismos/portada.js';
 import { PARCIALES, modulosDe } from '../temario/indice.js';
 import { FINALES, rankingTemas } from '../estudio/finales.js';
 import { moduloPorId } from '../temario/indice.js';
+import { OTRAS_GUIAS } from '../estudio/otras-guias.js';
 
 const enlaceBoton = (href, texto, variante = 'primario', icono = null) =>
   h('a', { class: `boton boton--${variante}`, href }, icono && svg(ICONOS[icono], { tam: 18 }), h('span', {}, texto));
@@ -24,7 +25,7 @@ export function vistaInicio(raiz, _params, { almacen }) {
     });
 
   const cuerpo = final ? cuerpoFinal(s) : cuerpoCursada(s);
-  raiz.append(hero, cuerpo);
+  raiz.append(hero, cuerpo, otrasGuias());
   return () => hero.destruir();
 }
 
@@ -82,3 +83,16 @@ function cuerpoFinal(s) {
 }
 
 const temasDe = (f) => [...new Set(f.items.map((i) => moduloPorId(i.tema)?.titulo))].slice(0, 4).join(', ');
+
+// Las demás guías de la UTN, separadas por año de la carrera.
+const otrasGuias = () =>
+  h('section', { class: 'otras-guias', 'aria-labelledby': 'otras-guias' },
+    h('h2', { class: 'bloque__titulo', id: 'otras-guias' }, 'También probá'),
+    OTRAS_GUIAS.map(({ anio, guias }) => [
+      h('h3', { class: 'otras-guias__anio' }, anio),
+      h('ul', { class: 'otras-guias__lista' }, guias.map(([nombre, materia, slug]) =>
+        h('li', { class: 'otras-guias__item' },
+          h('a', { class: 'otras-guias__sitio', href: `https://franco704.github.io/${slug}/`, target: '_blank', rel: 'noopener' },
+            h('strong', {}, nombre), h('span', {}, materia)),
+          h('a', { class: 'otras-guias__repo', href: `https://github.com/Franco704/${slug}`, target: '_blank', rel: 'noopener', 'aria-label': `Repositorio de ${nombre}` }, 'repositorio')))),
+    ]));
