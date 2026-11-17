@@ -194,7 +194,7 @@ $$M=\int_C\delta\,ds,\qquad M_{yz}=\int_C x\,\delta\,ds,\quad M_{xz}=\int_C y\,\
 
 $$\bar x=\frac{M_{yz}}{M},\qquad \bar y=\frac{M_{xz}}{M},\qquad \bar z=\frac{M_{xy}}{M}$$
 
-Con $C$ dada por $\vec r(t)$, $a\le t\le b$: $ds=|\vec r\,'(t)|\,dt$.`,
+Con $C$ dada por $\vec r(t)$, $a\le t\le b$: $ds=|\vec r\,{}'(t)|\,dt$.`,
       },
       {
         n: '2b', tema: 'm21', tipo: 'practica',

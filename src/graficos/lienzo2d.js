@@ -56,12 +56,12 @@ export class Lienzo2D {
 
   ejes({ marcas = true } = {}) {
     const { ctx, c, v } = this;
-    const paso = pasoLindo((v.x1 - v.x0) / 8);
+    const paso = pasoLindo((v.x1 - v.x0) / 8), pasoY = this.proporcional ? paso : pasoLindo((v.y1 - v.y0) / 8);
     ctx.lineWidth = 1;
     ctx.strokeStyle = c.cuadricula;
     ctx.beginPath();
     for (let x = Math.ceil(v.x0 / paso) * paso; x <= v.x1; x += paso) { ctx.moveTo(this.px(x), 0); ctx.lineTo(this.px(x), this.h); }
-    for (let y = Math.ceil(v.y0 / paso) * paso; y <= v.y1; y += paso) { ctx.moveTo(0, this.py(y)); ctx.lineTo(this.w, this.py(y)); }
+    for (let y = Math.ceil(v.y0 / pasoY) * pasoY; y <= v.y1; y += pasoY) { ctx.moveTo(0, this.py(y)); ctx.lineTo(this.w, this.py(y)); }
     ctx.stroke();
     ctx.strokeStyle = c.tintaSuave;
     ctx.beginPath();
@@ -75,7 +75,7 @@ export class Lienzo2D {
     for (let x = Math.ceil(v.x0 / paso) * paso; x <= v.x1; x += paso)
       if (Math.abs(x) > 1e-9) ctx.fillText(fmt(x), this.px(x), Math.min(this.h - 4, Math.max(12, this.py(0) + 14)));
     ctx.textAlign = 'right';
-    for (let y = Math.ceil(v.y0 / paso) * paso; y <= v.y1; y += paso)
+    for (let y = Math.ceil(v.y0 / pasoY) * pasoY; y <= v.y1; y += pasoY)
       if (Math.abs(y) > 1e-9) ctx.fillText(fmt(y), Math.max(26, Math.min(this.w - 4, this.px(0) - 5)), this.py(y) + 4);
   }
 
@@ -158,7 +158,7 @@ export class Lienzo2D {
   }
 
   // Curvas de nivel f(x,y)=c por marching squares.
-  contornos(f, valores, { colores, ancho = 1.4, resolucion = 90 } = {}) {
+  contornos(f, valores, { colores, ancho = 1.4, resolucion = 90, salto = Infinity } = {}) {
     const { v } = this;
     const n = resolucion, m = Math.round((resolucion * this.h) / this.w) || n;
     const dx = (v.x1 - v.x0) / n, dy = (v.y1 - v.y0) / m;
@@ -171,6 +171,7 @@ export class Lienzo2D {
         for (let j = 0; j < m; j++) {
           const a = G[i][j] - c, b = G[i + 1][j] - c, d = G[i][j + 1] - c, e = G[i + 1][j + 1] - c;
           if (![a, b, d, e].every(Number.isFinite)) continue;
+          if (Math.max(a, b, d, e) - Math.min(a, b, d, e) > salto) continue; // discontinuidad (corte de rama), no es curva
           const x = v.x0 + i * dx, y = v.y0 + j * dy;
           const cortes = [];
           if (a * b < 0) cortes.push([x + (dx * a) / (a - b), y]);

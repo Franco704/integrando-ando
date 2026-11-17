@@ -35,7 +35,7 @@ $$D_{\vec u}f(P_0)=f_x(P_0)\cos\alpha+f_y(P_0)\operatorname{sen}\alpha=\nabla f(
 - **Mínima** cuando $\theta=\pi$: la dirección de $-\nabla f$. Valor mínimo: $-|\nabla f(P_0)|$.
 - **Nula** cuando $\theta=\pm\frac\pi2$: las direcciones perpendiculares al gradiente, que son las tangentes a la curva de nivel.
 
-**El gradiente es normal a las curvas de nivel.** Si $\vec r(t)$ recorre la curva $f(x,y)=k$, derivando $f(\vec r(t))=k$ queda $\nabla f\cdot\vec r\,'(t)=0$. En tres variables, $\nabla f$ es normal a las superficies de nivel: es la base del TP 10.
+**El gradiente es normal a las curvas de nivel.** Si $\vec r(t)$ recorre la curva $f(x,y)=k$, derivando $f(\vec r(t))=k$ queda $\nabla f\cdot\vec r\,{}'(t)=0$. En tres variables, $\nabla f$ es normal a las superficies de nivel: es la base del TP 10.
 
 > El alpinista del final de agosto 2024: para bajar por la máxima pendiente debe ir en la dirección $-\nabla f$, y desciende a razón $|\nabla f|$.`,
     },
@@ -88,7 +88,7 @@ $$D_{\vec u}f(P_0)=f_x(P_0)\cos\alpha+f_y(P_0)\operatorname{sen}\alpha=\nabla f(
       enunciado: r`Derivada direccional de $f=x^2z+y^3-9$ a lo largo de $x=-\cos t$, $y=e^{-t}$, $z=\operatorname{sen}(2t)-1$ en $t=0$.`,
       pasos: [
         r`Punto: $P_0=(-1,1,-1)$. $\nabla f=(2xz,\,3y^2,\,x^2)$; en $P_0$: $(2,3,1)$.`,
-        r`Dirección: la tangente a la curva. $\vec r\,'(t)=(\operatorname{sen}t,-e^{-t},2\cos2t)$; en $t=0$: $(0,-1,2)$, de módulo $\sqrt5$.`,
+        r`Dirección: la tangente a la curva. $\vec r\,{}'(t)=(\operatorname{sen}t,-e^{-t},2\cos2t)$; en $t=0$: $(0,-1,2)$, de módulo $\sqrt5$.`,
         r`$D=(2,3,1)\cdot\frac{(0,-1,2)}{\sqrt5}=\frac{-3+2}{\sqrt5}=-\frac{1}{\sqrt5}$.`,
       ],
       respuesta: r`$-\frac{1}{\sqrt5}=-\frac{\sqrt5}{5}$.`,
@@ -119,7 +119,7 @@ $$D_{\vec u}f(P_0)=f_x(P_0)\cos\alpha+f_y(P_0)\operatorname{sen}\alpha=\nabla f(
     {
       id: 'm09-q3', p: r`El gradiente de $f(x,y)$ en un punto es:`,
       opciones: ['tangente a la curva de nivel', 'perpendicular a la curva de nivel', 'paralelo al eje z', 'siempre unitario'],
-      ok: 1, por: r`Derivando $f(\vec r(t))=k$ sobre la curva de nivel: $\nabla f\cdot\vec r\,'=0$.`,
+      ok: 1, por: r`Derivando $f(\vec r(t))=k$ sobre la curva de nivel: $\nabla f\cdot\vec r\,{}'=0$.`,
     },
     {
       id: 'm09-q4', p: r`Si $\nabla f(P_0)=\vec0$, la derivada direccional en $P_0$ es:`,

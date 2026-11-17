@@ -19,7 +19,7 @@ $$z-z_0=f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)$$`,
     },
     {
       id: 'curvas', titulo: 'Recta tangente y plano normal a una curva',
-      texto: r`**Curva paramétrica** $x=x(t)$, $y=y(t)$, $z=z(t)$: la dirección tangente en $t_0$ es $\vec r\,'(t_0)$.
+      texto: r`**Curva paramétrica** $x=x(t)$, $y=y(t)$, $z=z(t)$: la dirección tangente en $t_0$ es $\vec r\,{}'(t_0)$.
 
 $$\frac{x-x_0}{x'(t_0)}=\frac{y-y_0}{y'(t_0)}=\frac{z-z_0}{z'(t_0)},\qquad x'(t_0)(x-x_0)+y'(t_0)(y-y_0)+z'(t_0)(z-z_0)=0$$
 

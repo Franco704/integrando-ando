@@ -10,11 +10,13 @@ const TIPOS = { teoria: 'Teoría', vf: 'Verdadero o falso', practica: 'Práctica
 // Ítem de examen con la resolución oculta hasta que la pidas.
 export function itemExamen(it, { abierto = false } = {}) {
   const m = moduloPorId(it.tema);
-  const res = h('div', { class: 'item-examen__resolucion prosa', hidden: !abierto }, texto(it.resolucion || 'Sin resolución todavía.'));
-  const ver = boton(abierto ? 'Ocultar resolución' : 'Ver resolución', () => {
-    res.hidden = !res.hidden;
-    ver.querySelector('span').textContent = res.hidden ? 'Ver resolución' : 'Ocultar resolución';
-  });
+  const res = it.resolucion ? h('div', { class: 'item-examen__resolucion prosa', hidden: !abierto }, texto(it.resolucion)) : null;
+  const ver = res
+    ? boton(abierto ? 'Ocultar resolución' : 'Ver resolución', () => {
+      res.hidden = !res.hidden;
+      ver.querySelector('span').textContent = res.hidden ? 'Ver resolución' : 'Ocultar resolución';
+    })
+    : h('p', { class: 'item-examen__practica' }, m ? `Para practicar: el método está resuelto paso a paso en el TP ${m.tp}.` : 'Para practicar.');
   return h('article', { class: 'item-examen', id: `item-${it.n}`, dataset: { parcial: m?.parcial } },
     h('header', { class: 'item-examen__cabecera' },
       h('span', { class: 'item-examen__n' }, it.n),

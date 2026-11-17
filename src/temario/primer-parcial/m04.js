@@ -22,35 +22,35 @@ $\vec r$ es **continua** en $t=a$ si $\vec r(a)$ existe y $\lim_{t\to a}\vec r(t
     },
     {
       id: 'derivada', titulo: 'Derivada y su interpretación',
-      texto: r`$$\vec r\,'(t)=\lim_{\Delta t\to0}\frac{\vec r(t+\Delta t)-\vec r(t)}{\Delta t}=f'(t)\,\vec i+g'(t)\,\vec j+h'(t)\,\vec k$$
+      texto: r`$$\vec r\,{}'(t)=\lim_{\Delta t\to0}\frac{\vec r(t+\Delta t)-\vec r(t)}{\Delta t}=f'(t)\,\vec i+g'(t)\,\vec j+h'(t)\,\vec k$$
 
 La fórmula sale de aplicar la definición de límite componente a componente: el cociente incremental vectorial tiene por componentes los cocientes incrementales de $f$, $g$ y $h$.
 
-**Interpretación geométrica.** $\vec r(t+\Delta t)-\vec r(t)$ es un vector secante a la curva; al dividirlo por $\Delta t$ y tomar el límite queda un vector **tangente** a la curva en $\vec r(t)$, que apunta en el sentido de recorrido. La curva es **suave** si $\vec r\,'$ es continua y nunca nula.
+**Interpretación geométrica.** $\vec r(t+\Delta t)-\vec r(t)$ es un vector secante a la curva; al dividirlo por $\Delta t$ y tomar el límite queda un vector **tangente** a la curva en $\vec r(t)$, que apunta en el sentido de recorrido. La curva es **suave** si $\vec r\,{}'$ es continua y nunca nula.
 
-**Propiedades:** $(\vec u\pm\vec v)'=\vec u\,'\pm\vec v\,'$; $(\varphi\vec u)'=\varphi'\vec u+\varphi\vec u\,'$; $(\vec u\cdot\vec v)'=\vec u\,'\cdot\vec v+\vec u\cdot\vec v\,'$; $(\vec u\times\vec v)'=\vec u\,'\times\vec v+\vec u\times\vec v\,'$. Si $|\vec r(t)|$ es constante, $\vec r\cdot\vec r\,'=0$.`,
+**Propiedades:** $(\vec u\pm\vec v)'=\vec u\,{}'\pm\vec v\,{}'$; $(\varphi\vec u)'=\varphi'\vec u+\varphi\vec u\,{}'$; $(\vec u\cdot\vec v)'=\vec u\,{}'\cdot\vec v+\vec u\cdot\vec v\,{}'$; $(\vec u\times\vec v)'=\vec u\,{}'\times\vec v+\vec u\times\vec v\,{}'$. Si $|\vec r(t)|$ es constante, $\vec r\cdot\vec r\,{}'=0$.`,
     },
     {
       id: 'movimiento', titulo: 'Velocidad, aceleración y rapidez',
       texto: r`Si $\vec r(t)$ es la posición de una partícula:
 
-- **Velocidad:** $\vec v(t)=\vec r\,'(t)$.
+- **Velocidad:** $\vec v(t)=\vec r\,{}'(t)$.
 - **Rapidez:** $|\vec v(t)|$, un escalar.
-- **Aceleración:** $\vec a(t)=\vec r\,''(t)$.
+- **Aceleración:** $\vec a(t)=\vec r\,{}''(t)$.
 
-**Vector tangente unitario:** $\vec T=\dfrac{\vec r\,'}{|\vec r\,'|}$. **Normal principal:** $\vec N=\dfrac{\vec T\,'}{|\vec T\,'|}$, perpendicular a $\vec T$ y hacia el lado donde dobla la curva. **Curvatura:** $K=\dfrac{|\vec T\,'(t)|}{|\vec r\,'(t)|}$; en el plano también $K=\dfrac{|x'y''-y'x''|}{(x'^2+y'^2)^{3/2}}$.`,
+**Vector tangente unitario:** $\vec T=\dfrac{\vec r\,{}'}{|\vec r\,{}'|}$. **Normal principal:** $\vec N=\dfrac{\vec T\,{}'}{|\vec T\,{}'|}$, perpendicular a $\vec T$ y hacia el lado donde dobla la curva. **Curvatura:** $K=\dfrac{|\vec T\,{}'(t)|}{|\vec r\,{}'(t)|}$; en el plano también $K=\dfrac{|x'y''-y'x''|}{(x'^2+y'^2)^{3/2}}$.`,
     },
     {
       id: 'integral', titulo: 'Integral y longitud de arco',
       texto: r`La **integral indefinida** se calcula componente a componente y lleva un **vector** constante: $\int\vec r\,dt=\left(\int f\right)\vec i+\left(\int g\right)\vec j+\left(\int h\right)\vec k+\vec C$.
 
-**Teorema fundamental:** si $\vec R\,'=\vec r$, entonces $\int_a^b\vec r(t)\,dt=\vec R(b)-\vec R(a)$.
+**Teorema fundamental:** si $\vec R\,{}'=\vec r$, entonces $\int_a^b\vec r(t)\,dt=\vec R(b)-\vec R(a)$.
 
 Así se reconstruye el movimiento: de $\vec a$ se integra $\vec v$ (usando $\vec v(0)$) y de $\vec v$ se integra $\vec r$ (usando $\vec r(0)$).
 
 **Longitud de arco** de una curva suave entre $t=a$ y $t=b$:
 
-$$s=\int_a^b|\vec r\,'(t)|\,dt=\int_a^b\sqrt{f'(t)^2+g'(t)^2+h'(t)^2}\;dt$$
+$$s=\int_a^b|\vec r\,{}'(t)|\,dt=\int_a^b\sqrt{f'(t)^2+g'(t)^2+h'(t)^2}\;dt$$
 
 Es la integral de la rapidez: la distancia recorrida.`,
     },
@@ -100,9 +100,9 @@ Es la integral de la rapidez: la distancia recorrida.`,
       fuente: 'TP 4, ej. 12 c',
       enunciado: r`Para $\vec r(t)=3t\cos t\,\vec i-3t\operatorname{sen}t\,\vec j+4t\,\vec k$ halle $\vec T$, la rapidez y la longitud de la curva desde $t=0$ hasta $t=\pi$.`,
       pasos: [
-        r`$\vec r\,'=(3\cos t-3t\operatorname{sen}t)\,\vec i-(3\operatorname{sen}t+3t\cos t)\,\vec j+4\,\vec k$.`,
-        r`$|\vec r\,'|^2=9(\cos t-t\operatorname{sen}t)^2+9(\operatorname{sen}t+t\cos t)^2+16=9(1+t^2)+16$, porque los productos cruzados se cancelan. Rapidez: $\sqrt{25+9t^2}$.`,
-        r`$\vec T=\dfrac{\vec r\,'}{\sqrt{25+9t^2}}$.`,
+        r`$\vec r\,{}'=(3\cos t-3t\operatorname{sen}t)\,\vec i-(3\operatorname{sen}t+3t\cos t)\,\vec j+4\,\vec k$.`,
+        r`$|\vec r\,{}'|^2=9(\cos t-t\operatorname{sen}t)^2+9(\operatorname{sen}t+t\cos t)^2+16=9(1+t^2)+16$, porque los productos cruzados se cancelan. Rapidez: $\sqrt{25+9t^2}$.`,
+        r`$\vec T=\dfrac{\vec r\,{}'}{\sqrt{25+9t^2}}$.`,
         r`$s=\int_0^\pi\sqrt{25+9t^2}\,dt$. Con $u=3t$: $\frac13\int_0^{3\pi}\sqrt{25+u^2}\,du=\frac13\left[\frac u2\sqrt{25+u^2}+\frac{25}2\ln\!\left(u+\sqrt{25+u^2}\right)\right]_0^{3\pi}$.`,
         r`Numéricamente $s\approx22{,}6$.`,
       ],
@@ -111,10 +111,10 @@ Es la integral de la rapidez: la distancia recorrida.`,
       fuente: 'TP 4, ej. 15 a',
       enunciado: r`Halle $\vec T$, $K$ y $\vec N$ para $\vec r(t)=(\cos t+t\operatorname{sen}t)\,\vec i+(\operatorname{sen}t-t\cos t)\,\vec j$, $t>0$.`,
       pasos: [
-        r`$\vec r\,'=(-\operatorname{sen}t+\operatorname{sen}t+t\cos t)\,\vec i+(\cos t-\cos t+t\operatorname{sen}t)\,\vec j=t\cos t\,\vec i+t\operatorname{sen}t\,\vec j$.`,
-        r`$|\vec r\,'|=t$, así que $\vec T=\cos t\,\vec i+\operatorname{sen}t\,\vec j$.`,
-        r`$\vec T\,'=-\operatorname{sen}t\,\vec i+\cos t\,\vec j$, de módulo $1$: $\vec N=-\operatorname{sen}t\,\vec i+\cos t\,\vec j$.`,
-        r`$K=\frac{|\vec T\,'|}{|\vec r\,'|}=\frac1t$.`,
+        r`$\vec r\,{}'=(-\operatorname{sen}t+\operatorname{sen}t+t\cos t)\,\vec i+(\cos t-\cos t+t\operatorname{sen}t)\,\vec j=t\cos t\,\vec i+t\operatorname{sen}t\,\vec j$.`,
+        r`$|\vec r\,{}'|=t$, así que $\vec T=\cos t\,\vec i+\operatorname{sen}t\,\vec j$.`,
+        r`$\vec T\,{}'=-\operatorname{sen}t\,\vec i+\cos t\,\vec j$, de módulo $1$: $\vec N=-\operatorname{sen}t\,\vec i+\cos t\,\vec j$.`,
+        r`$K=\frac{|\vec T\,{}'|}{|\vec r\,{}'|}=\frac1t$.`,
       ],
       lab: 'curva-parametrica',
     },
@@ -131,19 +131,19 @@ Es la integral de la rapidez: la distancia recorrida.`,
   ],
   preguntas: [
     {
-      id: 'm04-q1', p: r`El vector $\vec r\,'(t_0)$, si no es nulo, es…`,
+      id: 'm04-q1', p: r`El vector $\vec r\,{}'(t_0)$, si no es nulo, es…`,
       opciones: ['perpendicular a la curva en r(t₀)', 'tangente a la curva en r(t₀), en el sentido de recorrido', 'el vector posición', 'siempre unitario'],
       ok: 1, por: r`Es el límite de los vectores secantes divididos por $\Delta t$.`,
     },
     {
       id: 'm04-q2', p: r`La longitud de arco de $\vec r(t)$ entre $a$ y $b$ es:`,
-      opciones: [r`$|\vec r(b)-\vec r(a)|$`, r`$\int_a^b|\vec r\,'(t)|\,dt$`, r`$\int_a^b\vec r(t)\,dt$`, r`$|\vec r\,'(b)|-|\vec r\,'(a)|$`],
+      opciones: [r`$|\vec r(b)-\vec r(a)|$`, r`$\int_a^b|\vec r\,{}'(t)|\,dt$`, r`$\int_a^b\vec r(t)\,dt$`, r`$|\vec r\,{}'(b)|-|\vec r\,{}'(a)|$`],
       ok: 1, por: r`Se integra la rapidez. $|\vec r(b)-\vec r(a)|$ es la distancia en línea recta, que solo coincide si el camino es un segmento recorrido sin volver.`,
     },
     {
       id: 'm04-q3', p: r`Si $|\vec r(t)|$ es constante para todo $t$, entonces:`,
-      opciones: [r`$\vec r\,'=\vec0$`, r`$\vec r\cdot\vec r\,'=0$`, r`$\vec r\times\vec r\,'=\vec0$`, r`la rapidez es constante`],
-      ok: 1, por: r`Derivando $\vec r\cdot\vec r=c$: $2\,\vec r\cdot\vec r\,'=0$. La posición es perpendicular a la velocidad (movimiento sobre una circunferencia o esfera).`,
+      opciones: [r`$\vec r\,{}'=\vec0$`, r`$\vec r\cdot\vec r\,{}'=0$`, r`$\vec r\times\vec r\,{}'=\vec0$`, r`la rapidez es constante`],
+      ok: 1, por: r`Derivando $\vec r\cdot\vec r=c$: $2\,\vec r\cdot\vec r\,{}'=0$. La posición es perpendicular a la velocidad (movimiento sobre una circunferencia o esfera).`,
     },
     {
       id: 'm04-q4', p: r`La integral indefinida de una función vectorial lleva como constante:`,

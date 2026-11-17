@@ -69,3 +69,8 @@
 .teoria__titulo { font-size: var(--t-2); margin-bottom: var(--e-4); }
 
 @keyframes aparecer { from { opacity: 0; transform: translateY(4px); } }
+
+/* Las fórmulas en bloque son anchas: la columna puede achicarse y el scroll queda dentro de la fórmula */
+.pregunta, .ejercicio, .lab, .lab__panel { grid-template-columns: minmax(0, 1fr); }
+.prosa, .ejercicio__paso, .pregunta__por, .ejercicio__respuesta { min-width: 0; overflow-wrap: anywhere; }
+.chip { white-space: normal; text-align: left; }

@@ -120,7 +120,7 @@ Se integra de adentro hacia afuera; en la integral interior la otra variable es 
     },
     {
       id: 'm13-q3', p: r`Para calcular $\int_0^1\!\int_x^1e^{y^2}dy\,dx$ conviene:`,
-      opciones: ['integrar por partes', r'cambiar el orden: $\int_0^1\!\int_0^ye^{y^2}dx\,dy$', 'usar polares', 'no tiene solución'],
+      opciones: ['integrar por partes', r`cambiar el orden: $\int_0^1\!\int_0^ye^{y^2}dx\,dy$`, 'usar polares', 'no tiene solución'],
       ok: 1, por: r`$e^{y^2}$ no tiene primitiva elemental en $y$. Cambiando el orden la interior da $y\,e^{y^2}$, que sí se integra: el resultado es $\frac{e-1}{2}$.`,
     },
     {

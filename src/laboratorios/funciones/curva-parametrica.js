@@ -13,10 +13,10 @@ const d = (f, t, h = 1e-4) => (f(t + h) - f(t - h)) / (2 * h);
 const d2 = (f, t, h = 1e-3) => (f(t + h) - 2 * f(t) + f(t - h)) / (h * h);
 
 export default {
-  resumen: String.raw`Una partícula recorre $\vec r(t)=x(t)\,\vec i+y(t)\,\vec j$. Mové $t$ y mirá la **velocidad** $\vec r\,'(t)$ (siempre tangente), la **aceleración** $\vec r\,''(t)$ (apunta hacia donde la curva dobla) y la **longitud de arco** acumulada desde el inicio.`,
+  resumen: String.raw`Una partícula recorre $\vec r(t)=x(t)\,\vec i+y(t)\,\vec j$. Mové $t$ y mirá la **velocidad** $\vec r\,{}'(t)$ (siempre tangente), la **aceleración** $\vec r\,{}''(t)$ (apunta hacia donde la curva dobla) y la **longitud de arco** acumulada desde el inicio.`,
   observa: [
     'En la elipse, la rapidez cambia: es mayor en los extremos del eje menor. La aceleración apunta siempre hacia adentro.',
-    String.raw`En la involuta la rapidez es $|\vec r\,'|=t$ y la curvatura $K=\frac1t$: cuanto más avanza, más se abre.`,
+    String.raw`En la involuta la rapidez es $|\vec r\,{}'|=t$ y la curvatura $K=\frac1t$: cuanto más avanza, más se abre.`,
     String.raw`En la cicloide, cuando $y=0$ la velocidad se anula: la curva no es suave ahí (tiene un pico).`,
   ],
   async montar(m) {

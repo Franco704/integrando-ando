@@ -117,7 +117,7 @@ Hay **seis órdenes** posibles; todos dan lo mismo (Fubini) y se elige el que si
     },
     {
       id: 'm14-q4', p: r`El sólido entre $z=x^2+y^2$ y $z=8-x^2-y^2$ se proyecta sobre el plano $xy$ en:`,
-      opciones: [r'el disco $x^2+y^2\le4$', r'el disco $x^2+y^2\le8$', 'todo el plano', r'la circunferencia $x^2+y^2=4$'],
+      opciones: [r`el disco $x^2+y^2\le4$`, r`el disco $x^2+y^2\le8$`, 'todo el plano', r`la circunferencia $x^2+y^2=4$`],
       ok: 0, por: r`Las superficies se cortan donde $x^2+y^2=8-x^2-y^2$, o sea $x^2+y^2=4$; la sombra es el disco que esa curva encierra.`,
     },
   ],

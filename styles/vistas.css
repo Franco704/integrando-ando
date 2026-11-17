@@ -136,3 +136,5 @@ body.sin-scroll { overflow: hidden; }
   .formulario__lista { grid-template-columns: 16rem 1fr; }
   .formulario__lista dt, .formulario__lista dd { padding: var(--e-3) var(--e-3) var(--e-3) 0; border-bottom: 1px solid var(--cuadricula); align-self: stretch; display: flex; align-items: center; }
 }
+.item-examen { grid-template-columns: minmax(0, 1fr); }
+.item-examen__practica { font-size: var(--t--1); color: var(--tinta-suave); }
