@@ -2,6 +2,7 @@
 export const OTRAS_GUIAS = [
   { anio: '2.º año', guias: [
     ['Operando Ando', 'Sistemas Operativos: procesos, planificación, memoria y archivos', 'operando-ando'],
+    ['Induciendo Ando', 'Física II: campos, circuitos, inducción, ondas y calor, con simuladores', 'induciendo-ando'],
   ] },
   { anio: '3.er año', guias: [
     ['Backeando Ando', 'Desarrollo de software backend: C#, ASP.NET, EF Core', 'backeando-ando'],
