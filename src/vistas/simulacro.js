@@ -2,7 +2,7 @@ import { h } from '../ui/atomos/h.js';
 import { boton } from '../ui/atomos/controles.js';
 import { pregunta } from '../ui/moleculas/moleculas.js';
 import { modulosDe, cargarModulo, MODULOS, PARCIALES } from '../temario/indice.js';
-import { FINALES, bloqueDe } from '../estudio/finales.js';
+import { FINALES, bloqueDe } from '../examenes/finales.js';
 import { itemExamen } from './finales.js';
 import { progreso } from '../nucleo/almacen.js';
 

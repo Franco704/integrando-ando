@@ -2,7 +2,7 @@ import { h, svg, ICONOS } from '../ui/atomos/h.js';
 import { filaModulo } from '../ui/moleculas/moleculas.js';
 import { portada } from '../ui/organismos/portada.js';
 import { PARCIALES, modulosDe } from '../temario/indice.js';
-import { FINALES, rankingTemas } from '../estudio/finales.js';
+import { FINALES, rankingTemas } from '../examenes/finales.js';
 import { moduloPorId } from '../temario/indice.js';
 import { OTRAS_GUIAS } from '../estudio/otras-guias.js';
 

@@ -55,4 +55,7 @@ export const ICONOS = {
   lab: 'M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3',
   examen: 'M7 3h10l2 2v16H5V5zM9 9h6M9 13h6M9 17h3',
   formula: 'M5 5h8M9 5v8a3 3 0 01-3 3M14 12l5 6M19 12l-5 6',
+  indice: 'M5 6h2M10 6h9M5 12h2M10 12h9M5 18h2M10 18h9',
+  inicio: 'M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z',
+  simulacro: 'M7 3h10v18H7zM10 8h4M10 12h4M10 16h2',
 };

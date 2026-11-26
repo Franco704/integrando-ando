@@ -62,6 +62,8 @@ body.sin-scroll { overflow: hidden; }
   font: 800 clamp(4.5rem, 16vw, 7.5rem) / 0.78 var(--f-ui); letter-spacing: -0.06em; color: var(--eje);
   font-variant-numeric: tabular-nums;
 }
+/* En el celular el número va arriba del título, para que el título tenga todo el ancho */
+@media (max-width: 599px) { .modulo__rotulo { flex-direction: column; align-items: flex-start; gap: var(--e-3); } }
 .modulo__tp-texto { font-weight: 600; color: var(--tinta-suave); font-size: var(--t--1); }
 .modulo__titulo { font-size: var(--t-4); letter-spacing: -0.025em; margin-top: var(--e-1); }
 .modulo__intro { margin-top: var(--e-5); font-size: calc(var(--t-0) * 1.12); }
@@ -129,11 +131,12 @@ body.sin-scroll { overflow: hidden; }
 .formulario__titulo { font-size: var(--t-1); padding-bottom: var(--e-2); border-bottom: 2px solid var(--eje); }
 .formulario__titulo a { text-decoration: none; }
 .formulario__titulo a:hover { color: var(--eje); }
-.formulario__lista { margin: 0; display: grid; }
+.formulario__lista { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); }
+.formulario__lista dd { min-width: 0; }
 .formulario__lista dt { font-weight: 600; padding-top: var(--e-4); }
 .formulario__lista dd { margin: 0; padding-bottom: var(--e-2); border-bottom: 1px solid var(--cuadricula); }
 @media (min-width: 760px) {
-  .formulario__lista { grid-template-columns: 16rem 1fr; }
+  .formulario__lista { grid-template-columns: 16rem minmax(0, 1fr); }
   .formulario__lista dt, .formulario__lista dd { padding: var(--e-3) var(--e-3) var(--e-3) 0; border-bottom: 1px solid var(--cuadricula); align-self: stretch; display: flex; align-items: center; }
 }
 .item-examen { grid-template-columns: minmax(0, 1fr); }

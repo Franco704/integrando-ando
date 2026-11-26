@@ -5,12 +5,12 @@ import { bloqueTeoria, ejercicio, pregunta } from '../ui/moleculas/moleculas.js'
 import { marcoLaboratorio } from '../ui/organismos/laboratorio.js';
 import { cargarModulo, MODULOS, UNIDADES, PARCIALES } from '../temario/indice.js';
 import { cargarLaboratorio } from '../laboratorios/indice.js';
-import { itemsDeModulo } from '../estudio/finales.js';
+import { itemsDeModulo } from '../examenes/finales.js';
 import { progreso } from '../nucleo/almacen.js';
 
 export function vistaModulo(raiz, { id }, { almacen }) {
   const labs = [];
-  let vivo = true;
+  let vivo = true, observador = null;
   raiz.append(h('p', { class: 'cargando' }, 'Cargando el módulo…'));
 
   cargarModulo(id).then(async (mod) => {
@@ -93,13 +93,21 @@ export function vistaModulo(raiz, { id }, { almacen }) {
     }
     const s = new URLSearchParams(location.hash.split('?')[1]).get('s');
     if (s) irA(s);
+    // Riel (desde 1280 px el índice de secciones queda fijo a la derecha): marca la sección que se está leyendo
+    const enlaces = new Map([...pagina.querySelectorAll('.modulo__indice a')].map((a) => [new URLSearchParams(a.getAttribute('href').split('?')[1]).get('s'), a]));
+    observador = new IntersectionObserver((entradas) => entradas.forEach((en) => {
+      if (!en.isIntersecting) return;
+      enlaces.forEach((a) => a.removeAttribute('aria-current'));
+      enlaces.get(en.target.id)?.setAttribute('aria-current', 'true');
+    }), { rootMargin: '0px 0px -70% 0px' });
+    pagina.querySelectorAll('.modulo__seccion').forEach((sec) => observador.observe(sec));
   });
 
   function irA(sid) {
     document.getElementById(sid)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }
 
-  return () => { vivo = false; labs.forEach((l) => l.destruir()); };
+  return () => { vivo = false; observador?.disconnect(); labs.forEach((l) => l.destruir()); };
 }
 
 // Corta el enunciado sin dejar una fórmula abierta.

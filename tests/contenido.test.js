@@ -2,8 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { MODULOS, cargarModulo, moduloPorId } from '../src/temario/indice.js';
 import { LABORATORIOS, cargarLaboratorio } from '../src/laboratorios/indice.js';
-import { FINALES } from '../src/estudio/finales.js';
-import { MODELOS_PARCIAL } from '../src/estudio/modelos-parcial.js';
+import { FINALES } from '../src/examenes/finales.js';
+import { MODELOS_PARCIAL } from '../src/examenes/modelos-de-parcial.js';
 import { FORMULARIO } from '../src/estudio/formulario.js';
 
 const modulos = await Promise.all(MODULOS.map((m) => cargarModulo(m.id)));

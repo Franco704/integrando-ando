@@ -25,7 +25,9 @@ export const UNIDADES = {
   8: 'Ecuaciones diferenciales ordinarias',
 };
 
-const m = (tp, parcial, unidad, titulo, resumen, labs = []) => ({ id: `m${String(tp).padStart(2, '0')}`, tp, parcial, unidad, titulo, resumen, labs });
+// id = mNN: es la ruta (#/modulo/m09) y la clave del progreso guardado, así que no cambia; archivo = el tema
+const ARCHIVOS = { "m00": "recta-plano-y-cuadricas", "m01": "funciones-de-varias-variables", "m02": "limites", "m03": "continuidad", "m04": "calculo-vectorial", "m05": "derivadas-parciales", "m06": "derivadas-de-orden-superior", "m07": "funciones-compuestas-y-homogeneas", "m08": "funciones-implicitas", "m09": "derivada-direccional-y-gradiente", "m10": "aplicaciones-geometricas", "m11": "diferenciales", "m12": "maximos-y-minimos", "m13": "integrales-dobles", "m14": "integrales-triples", "m15": "cambio-de-variables-en-integrales-dobles", "m16": "cambio-de-variables-en-integrales-triples", "m17": "aplicaciones-de-las-integrales-dobles", "m18": "aplicaciones-de-las-integrales-triples", "m19": "campos-escalares-y-vectoriales", "m20": "integrales-de-linea", "m21": "integrales-de-superficie", "m22": "ecuaciones-diferenciales-de-primer-orden", "m23": "lineales-bernoulli-y-trayectorias-ortogonales" };
+const m = (tp, parcial, unidad, titulo, resumen, labs = []) => { const id = `m${String(tp).padStart(2, '0')}`; return { id, archivo: ARCHIVOS[id], tp, parcial, unidad, titulo, resumen, labs }; };
 
 export const MODULOS = [
   m(0, 1, 0, 'Recta, plano y cuádricas', 'El vocabulario geométrico de todo el año', ['cuadricas']),
@@ -62,6 +64,6 @@ export async function cargarModulo(id) {
   const meta = moduloPorId(id);
   if (!meta) return null;
   const carpeta = meta.parcial === 1 ? 'primer-parcial' : 'segundo-parcial';
-  const contenido = (await import(`./${carpeta}/${id}.js`)).default;
+  const contenido = (await import(`./${carpeta}/${meta.archivo}.js`)).default;
   return { ...meta, ...contenido };
 }

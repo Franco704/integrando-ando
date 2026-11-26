@@ -1,8 +1,8 @@
 import { h } from '../ui/atomos/h.js';
 import { texto } from '../ui/atomos/matematica.js';
 import { boton, chip } from '../ui/atomos/controles.js';
-import { FINALES } from '../estudio/finales.js';
-import { MODELOS_PARCIAL } from '../estudio/modelos-parcial.js';
+import { FINALES } from '../examenes/finales.js';
+import { MODELOS_PARCIAL } from '../examenes/modelos-de-parcial.js';
 import { moduloPorId } from '../temario/indice.js';
 
 const TIPOS = { teoria: 'Teoría', vf: 'Verdadero o falso', practica: 'Práctica' };

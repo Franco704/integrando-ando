@@ -42,3 +42,5 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+/* Una fórmula en línea más ancha que la pantalla se desplaza dentro de su caja, nunca ensancha la página */
+.formula:not(.formula--bloque) { display: inline-block; max-width: 100%; overflow-x: auto; overflow-y: hidden; vertical-align: middle; }

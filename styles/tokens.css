@@ -1,5 +1,6 @@
 /* Carta topográfica: papel frío, tinta azul noche. Cobalto = derivar (pendientes, 1er parcial).
-   Ciruela = integrar (acumular, 2do parcial). Ningún otro color decora. */
+   Ciruela = integrar (acumular, 2do parcial). Ningún otro color decora.
+   Bricolage Grotesque para títulos e interfaz (su ancho óptico marca los números de TP) y Literata para la teoría; las fórmulas, en KaTeX. */
 :root {
   --papel: #f1f4f8;
   --papel-2: #e6ebf2;
@@ -22,8 +23,8 @@
   --eje: var(--deriv);
   --eje-tenue: var(--deriv-tenue);
 
-  --f-ui: 'Schibsted Grotesk', system-ui, sans-serif;
-  --f-texto: 'Newsreader', 'Iowan Old Style', Georgia, serif;
+  --f-ui: 'Bricolage Grotesque', system-ui, sans-serif;
+  --f-texto: 'Literata', 'Iowan Old Style', Georgia, serif;
 
   /* Escala tipográfica modular 1.2 sobre 17px */
   --t--1: 0.875rem;
@@ -48,6 +49,7 @@
   --medida: 68ch;
   --gutter: 16px;
   --barra: 56px;
+  --dock: 64px;
   --lateral: 300px;
   color-scheme: light;
 }
