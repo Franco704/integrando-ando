@@ -150,3 +150,7 @@
   .modulo .modulo__indice a:hover { color: var(--tinta); }
   .modulo .modulo__indice a[aria-current] { color: var(--eje); border-left-color: var(--eje); font-weight: 700; }
 }
+
+/* Vuelta al hub con las guías de todas las materias */
+.nav__hub { display: block; margin-top: var(--e-5); padding: 12px 14px; border: 1px solid var(--linea); border-radius: var(--r-medio); color: var(--tinta); font-size: .92rem; font-weight: 600; text-decoration: none; }
+.nav__hub:hover { border-color: var(--tinta-suave); }

@@ -84,7 +84,7 @@ export function navegacion(almacen) {
   };
   const suelto = (href, texto, icono, extra) => h('a', { class: 'nav__suelto', href }, svg(ICONOS[icono], { tam: 18 }), texto, extra);
   buscar.addEventListener('input', pintar);
-  nav.append(h('label', { class: 'nav__busqueda' }, buscar), contenido);
+  nav.append(h('label', { class: 'nav__busqueda' }, buscar), contenido, h('a', { class: 'nav__hub', href: 'https://utn-ando.github.io/' }, 'Ver las otras materias en UTN Ando'));
   nav.marcarActual = () => marcar(nav);
   nav.enfocarBusqueda = () => buscar.focus();
   almacen.suscribir(pintar);
