@@ -53,7 +53,10 @@ export function barraSuperior(almacen, { alMenu }) {
   const barra = h('header', { class: 'barra' },
     menu,
     h('a', { class: 'marca', href: '#/' }, h('span', { class: 'marca__signo', 'aria-hidden': 'true' }, '∫'), h('span', { class: 'marca__texto' }, 'Integrando Ando')),
-    enlaces, grupoModo, temaBtn);
+    enlaces, grupoModo,
+    // Volver al hub UTN Ando desde la barra superior
+    h('a', { class: 'ir-hub', href: 'https://utn-ando.github.io/', title: 'Volver a UTN Ando: las guías de todas las materias' }, svg('M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z'), h('span', {}, 'UTN Ando')),
+    temaBtn);
   barra.marcarActual = () => marcar(enlaces);
   return barra;
 }

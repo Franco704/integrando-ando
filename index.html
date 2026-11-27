@@ -29,6 +29,13 @@
   }
   </script>
   <script type="module" src="src/main.js"></script>
+  <style>
+    /* Volver al hub UTN Ando desde la barra superior, en todas las guías */
+    .ir-hub { display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex: none; min-width: 44px; min-height: 44px; padding: 0 10px; border-radius: 8px; color: inherit; text-decoration: none; font-weight: 600; font-size: .9rem; white-space: nowrap; }
+    .ir-hub:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+    .ir-hub:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+    @media (max-width: 767px) { .ir-hub { padding: 0; } .ir-hub span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } }
+  </style>
 </head>
 <body>
   <noscript>Esta guía necesita JavaScript para mostrar las fórmulas y los laboratorios.</noscript>
